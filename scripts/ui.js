@@ -12,12 +12,11 @@ UI.prototype.addFilmToUI = function(newFilm){
     <td>${newFilm.title}</td>
     <td>${newFilm.director}</td>
     <td><a href="#" id = "delete-film" class = "btn btn-danger">Filmi Sil</a></td>
-   </tr>
-    
-    
-    
-    `
+   </tr>`
+}
 
-
-
+UI.prototype.clearInputs = function(input1, input2, input3){
+    input1.value = ""
+    input2.value = ""
+    input3.value = ""
 }
