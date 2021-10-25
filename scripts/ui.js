@@ -1,8 +1,8 @@
-function UI(){
+function UI() {
 
 }
 
-UI.prototype.addFilmToUI = function(newFilm){
+UI.prototype.addFilmToUI = function (newFilm) {
     console.log(newFilm)
     const filmList = document.getElementById("films")
 
@@ -15,7 +15,7 @@ UI.prototype.addFilmToUI = function(newFilm){
    </tr>`
 }
 
-UI.prototype.clearInputs = function(input1, input2, input3){
+UI.prototype.clearInputs = function (input1, input2, input3) {
     input1.value = ""
     input2.value = ""
     input3.value = ""
