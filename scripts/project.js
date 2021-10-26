@@ -14,9 +14,15 @@ function addFilm(e) {
     const title = titleForm.value;
     const director = directorForm.value;
     const url = urlForm.value
+    if (title === "" || director === "" || url === "") {
+        ui.showMessages("Tüm alanları doldurun", "danger")
+    }
 
-    const newFilm = new Film(title, director, url);
-    ui.addFilmToUI(newFilm);
+    else {
+        const newFilm = new Film(title, director, url);
+        ui.addFilmToUI(newFilm);
+        ui.clearInputs(titleForm, directorForm, urlForm)
+    }
     e.preventDefault();
-    ui.clearInputs(titleForm, directorForm, urlForm)
+
 }
