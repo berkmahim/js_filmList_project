@@ -1,19 +1,19 @@
-function Storage(){
+function Storage() {
 
 }
 
-Storage.prototype.addFilmToStorage = function(newFilm){
+Storage.prototype.addFilmToStorage = function (newFilm) {
     let films = this.getFilmFromStorage()
     films.push(newFilm)
-    localStorage.setItem("films",JSON.stringify(films))
+    localStorage.setItem("films", JSON.stringify(films))
 }
 
-Storage.prototype.getFilmFromStorage = function(){
+Storage.prototype.getFilmFromStorage = function () {
     let films
     if (localStorage.getItem("films") === null) {
         films = []
     }
-    else{
+    else {
         films = JSON.parse(localStorage.getItem("films"))
     }
     return films

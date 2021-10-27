@@ -9,6 +9,10 @@ eventlesteners()
 
 function eventlesteners() {
     form.addEventListener("submit", addFilm);
+    document.addEventListener("DOMContentLoaded", () => {
+        let films = storage.getFilmFromStorage()
+        ui.loadFilms(films)
+    })
 }
 
 function addFilm(e) {
@@ -24,8 +28,8 @@ function addFilm(e) {
         ui.addFilmToUI(newFilm);
         storage.addFilmToStorage(newFilm)
         ui.clearInputs(titleForm, directorForm, urlForm)
-        ui.showMessages("Film listeye eklendi","success")
-        
+        ui.showMessages("Film listeye eklendi", "success")
+
     }
     e.preventDefault();
 
