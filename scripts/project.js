@@ -5,6 +5,7 @@ const urlForm = document.querySelector("#url")
 const cardBody = document.querySelectorAll(".card-body")[1]
 const ui = new UI()
 const storage = new Storage()
+const clear = document.getElementById("clear-films")
 eventlesteners()
 
 function eventlesteners() {
@@ -14,6 +15,7 @@ function eventlesteners() {
         ui.loadFilms(films)
     })
     cardBody.addEventListener("click", deleteFilm)
+    clear.addEventListener("click", clearAllFilms)
 }
 
 function addFilm(e) {
@@ -39,6 +41,16 @@ function addFilm(e) {
 function deleteFilm(e) {
     if (e.target.id === "delete-film") {
         ui.deleteFilmFromUI(e.target)
+        storage.deleteFilmFromStorage(e.target.parentElement.previousElementSibling.previousElementSibling.textContent)
+        ui.showMessages("Film başarıyla silindi", "warning")
     }
 
+}
+
+function clearAllFilms() {
+    if (confirm("Tüm filmler silinecek. Emin misiniz?")) {
+        ui.clearAllFilmsFromUI()
+        storage.clearAllFilmsFromStorage()
+        ui.showMessages("Tüm filmler başarıyla silindi", "warning")
+    }
 }
